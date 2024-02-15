@@ -1,0 +1,31 @@
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #020203;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    height: 91px;
+    padding: 0 20px;
+}
+
+.header_logo {
+    width: 178px;
+    height: 61px;
+    z-index: 10;
+}
+
+.header_nav {
+    width: 100%;
+}
+
+.header_nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+}
+
+.header_link {
+
+    color: #fff;
+    font-size: 24px;
+    font-weight: 500;
+}
