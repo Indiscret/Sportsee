@@ -1,0 +1,31 @@
+.main_contain {
+    margin-left: 150px;
+    padding: 50px;
+}
+
+.user_title {
+    font-size: 48px;
+    font-weight: 500;
+}
+
+.user_title span {
+    color: #ff0000;
+}
+
+.user_subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.loading {
+    font-size: 24px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.nutritional {
+    display: flex;
+    flex-direction: column;
+}
