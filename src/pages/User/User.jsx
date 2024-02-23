@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { userInfo } from "../../services/apiService";
 import NutritionalValue from "../../components/NutritionalValue/NutritionalValue";
+import ActivityChart from "../../components/ActivityChart/ActivityChart";
 import Calories from '../../assets/Calories.png';
 import Proteins from '../../assets/Proteins.png';
 import Glucides from '../../assets/Glucides.png';
@@ -34,6 +35,11 @@ function User() {
         <div className="user">
             <h1 className="user_title">Bonjour <span>{user.userInfos.firstName}</span></h1>
             <p className="user_subtitle">Félicitations ! Vous avez explosé vos objectifs hier 👏</p>
+        </div>
+        <div className="activity">
+            <ActivityChart userId={id}/>
+        </div>
+        <div className="average_sessions">
         </div>
         <div className="nutritional">
             <NutritionalValue icon={Calories} unit={user.keyData.calorieCount} title='Calories'/>
