@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import { userActivity } from "../../services/apiService";
 import { CustomTooltipActivity } from "../CustomTooltip/CustomTooltip";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
+import './ActivityChart.css';
 
 function ActivityChart({ userId }) {
-    const [activity, setActivity] = useState(null);
+    const [activity, setActivity] = useState([]);
 
     useEffect(() => {
         const fetchActivityData = async () => {
@@ -18,12 +19,16 @@ function ActivityChart({ userId }) {
         fetchActivityData();
     }, [userId]);
 
+    function formatDay(_, index) {
+        return index + 1;
+    };
+
     return (
         <div className="activity_chart">
             <h3 className="activity_title">Activité quotidienne</h3>
-            <BarChart width={835} height={320} data={activity && activity.sessions} >
-                <CartesianGrid strokeDasharray="3 3"  vertical={false}/>
-                <XAxis dataKey='day' tickLine={false} />
+            <BarChart width={835} height={320} data={activity?.sessions} >
+                <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                <XAxis dataKey='day' tickLine={false} tickFormatter={formatDay} />
                 <YAxis dataKey='kilogram' type='number' tickLine={false} orientation='right' axisLine={false} domain={['dataMin - 1', 'dataMax + 1']} />
                 <YAxis dataKey='calories' type='number' yAxisId='calorie' hide />
                 <Tooltip content={<CustomTooltipActivity />} />
