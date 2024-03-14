@@ -14,13 +14,16 @@ import './User.css';
 
 
 function User() {
-    const [user, setUser] = useState(null);
-    const { id } = useParams();
+    const [user, setUser] = useState(null); // Définition d'un état local pour stocker les informations de l'utilisateur
+    const { id } = useParams(); // Récupération de l'ID de l'utilisateur depuis les paramètres de l'URL
 
+    // Utilisation de useEffect pour récupérer les données de l'utilisateur lorsque l'ID de l'utilisateur change
     useEffect(() => {
         const fetchUserData = async () => {
             try {
+                // Appel à la fonction pour récupérer les informations de l'utilisateur
                 const userData = await userInfo(id);
+                // Mise à jour de l'état avec les informations de l'utilisateur récupérées
                 setUser(userData);
             } catch (error) {
                 console.error("Erreur lors de la récupération des données de l'utilisateur:", error);
@@ -28,11 +31,12 @@ function User() {
         };
 
         fetchUserData();
-    }, [id]);
+    }, [id]); // Déclencher l'effet chaque fois que l'ID de l'utilisateur change
 
     return (
         <main className="main_contain">
             <div className="dashboard">
+                {/* Vérification si les informations de l'utilisateur sont disponibles */}
                 {user ? (
                     <>
                         <div className="user">
@@ -67,7 +71,7 @@ function User() {
                         </div>
                     </>
                 ) : (
-                    <div className="error">
+                    <div className="error"> {/* Affichage en cas d'erreur de récupération des informations utilisateur */}
                         <p>Les données de l'utilisateur ne sont pas disponibles. Veuillez réessayer plus tard.</p>
                     </div>
                 )}

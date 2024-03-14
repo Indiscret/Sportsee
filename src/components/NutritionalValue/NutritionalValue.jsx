@@ -1,7 +1,9 @@
 import './NutritionalValue.css';
 
 function NutritionalValue({ icon, unit, title }) {
+    // Vérification si le titre est "Calories" pour déterminer le type de titre
     const isCalories = title === 'Calories';
+    // Construction du type de titre en fonction de l'unité (kCal ou g)
     const titleType = isCalories ? `${unit}kCal` : `${unit}g`;
 
     return (
@@ -17,4 +19,4 @@ function NutritionalValue({ icon, unit, title }) {
     )
 }
 
-export default NutritionalValue
+export default NutritionalValue;
