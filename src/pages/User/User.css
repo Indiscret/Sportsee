@@ -58,7 +58,7 @@
     height: 100%;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
     .chart {
         flex-direction: column-reverse; 
     }
@@ -72,3 +72,4 @@
         flex-direction: row;
     }
 }
+
