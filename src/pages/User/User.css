@@ -57,3 +57,18 @@
     justify-content: space-between;
     height: 100%;
 }
+
+@media screen and (max-width: 1024px) {
+    .chart {
+        flex-direction: column-reverse; 
+    }
+
+    .other_chart {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nutritional {
+        flex-direction: row;
+    }
+}
